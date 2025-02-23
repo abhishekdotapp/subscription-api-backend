@@ -1,4 +1,7 @@
-import {config} from 'dotenv'
+import dotenv from "dotenv"
+dotenv.config()
 
-config({path: `.emv.${process.env.NODE_ENV || 'development'}.local`});
-export const {PORT,NODE_ENV} = process.env;
+const PORT = process.env.PORT
+const DB_URI = process.env.DB_URI
+const NODE_ENV = process.env.NODE_ENV
+export {PORT,NODE_ENV, DB_URI};

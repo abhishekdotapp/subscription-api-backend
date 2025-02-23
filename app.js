@@ -2,7 +2,7 @@ import express from "express"
 import authRouter from "./routes/auth.routes.js";
 import subscriptionRouter from "./routes/subscription.routes.js";
 import userRouter from "./routes/user.routes.js";
-
+import connectToDatabase from "./database/mongodb.js";
 const PORT = process.env.PORT || 3000
 const app = express();
 app.use('/api/v1/auth', authRouter);
@@ -16,8 +16,9 @@ app.get("/about",(req,res) =>{
     res.send("about page this is")
 })
 
-app.listen(PORT, ()=>{
+app.listen(PORT, async ()=>{
     console.log(`server is listening at port${PORT}`)
+    await connectToDatabase()
 })  
 
 export default app;
