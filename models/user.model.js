@@ -12,7 +12,7 @@ const userSchema = new mongoose.Schema({
         type: String,
         required: [true, 'User Email is required'],
         unique: true,
-        trim: TopologyDescriptionChangedEvent,
+        trim: true,
         lowercase: true,
         match: [/\S+@\S+\.\S+/, 'Please fill a valid email'],
 
